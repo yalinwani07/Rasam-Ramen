@@ -61,9 +61,25 @@
   </p>
   
   <div class="vote-buttons">
-    <button aria-label="Vote yes for Rasam Ramen">Yes, I'm intrigued!</button>
-    <button aria-label="Vote no for Rasam Ramen">No, not my taste.</button>
-  </div>
+  <button onclick="submitVote('Yes, I\'m intrigued!')">Yes, I'm intrigued!</button>
+  <button onclick="submitVote('No, not my taste.')">No, not my taste.</button>
+</div>
+  
+  
+  <!-- Hidden form that submits the vote -->
+<form id="vote-form" action="https://docs.google.com/forms/d/e/1FAIpQLSfpzzoehDO9T0dpJRA1ZTZmBp_JETzogQupUynIaQerxi3P4w/formResponse" method="POST" target="hidden_iframe" style="display:none;">
+  <input type="hidden" name="entry.2130828814" id="vote-input" value="">
+</form>
+<iframe name="hidden_iframe" style="display:none;"></iframe>
+
+<script>
+  function submitVote(choice) {
+    document.getElementById('vote-input').value = choice;
+    document.getElementById('vote-form').submit();
+    alert(`Thanks for voting: "${choice}"`);
+  }
+  
+<script>
   
   <div class="social-links">
     <p>Share it:</p>
