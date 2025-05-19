@@ -1,9 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Rasam Ramen is a daring fusion of South Indian rasam and Japanese ramen. Vote now to share your take!">
   <title>Rasam Ramen: A Fusion Worth Slurping?</title>
   <style>
     body {
@@ -57,19 +57,27 @@
   </p>
   
   <p>
-    Imagine slurping noodles in a tamarind-tomato broth seasoned with mustard seeds, curry leaves, and a hint of miso. Sounds wild? We want to know what *you* think.
+    Imagine slurping noodles in a tamarind-tomato broth seasoned with mustard seeds, curry leaves, and a hint of miso. Sounds wild? We want to know what <em>you</em> think.
   </p>
   
   <div class="vote-buttons">
-    <button>Yes, I'm intrigued!</button>
-    <button>No, not my taste.</button>
+    <button aria-label="Vote yes for Rasam Ramen">Yes, I'm intrigued!</button>
+    <button aria-label="Vote no for Rasam Ramen">No, not my taste.</button>
   </div>
   
   <div class="social-links">
     <p>Share it:</p>
-    <a href="#">Facebook</a>
-    <a href="#">Twitter</a>
-    <a href="#">Instagram</a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=YOUR_URL" target="_blank">Facebook</a>
+    <a href="https://twitter.com/intent/tweet?url=YOUR_URL&text=Rasam%20Ramen%3A%20A%20Fusion%20Worth%20Slurping%3F" target="_blank">Twitter</a>
+    <a href="https://www.instagram.com/" target="_blank">Instagram</a>
   </div>
+
+  <script>
+    document.querySelectorAll('.vote-buttons button').forEach(button => {
+      button.addEventListener('click', () => {
+        alert(`You voted: "${button.innerText}"`);
+      });
+    });
+  </script>
 </body>
 </html>
