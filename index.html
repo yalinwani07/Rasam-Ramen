@@ -67,18 +67,26 @@
   
   
   <!-- Hidden form that submits the vote -->
-<form id="vote-form" action="https://docs.google.com/forms/d/e/1FAIpQLSfpzzoehDO9T0dpJRA1ZTZmBp_JETzogQupUynIaQerxi3P4w/formResponse" method="POST" target="hidden_iframe" style="display:none;">
-  <input type="hidden" name="entry.2130828814" id="vote-input" value="">
-</form>
-<iframe name="hidden_iframe" style="display:none;"></iframe>
-
-<script>
-  function submitVote(choice) {
-    document.getElementById('vote-input').value = choice;
-    document.getElementById('vote-form').submit();
-    alert(`Thanks for voting: "${choice}"`);
-  }
   
+  <script>
+  function submitVote(choice) {
+    const formURL = "https://docs.google.com/forms/d/e/1FAIpQLSfpzzoehDO9T0dpJRA1ZTZmBp_JETzogQupUynIaQerxi3P4w/formResponse";
+    const formData = new FormData();
+    
+    // Use the actual Google Forms input field name
+    formData.append("entry.2130828814", choice);
+
+    fetch(formURL, {
+      method: "POST",
+      mode: "no-cors",
+      body: formData
+    }).then(() => {
+      alert(`Thanks for voting: "${choice}"`);
+    }).catch(err => {
+      alert("There was an error submitting your vote.");
+      console.error("Submission error:", err);
+    });
+  }
 </script>
   
   <div class="social-links">
