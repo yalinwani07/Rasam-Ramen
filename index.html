@@ -63,19 +63,14 @@
   <div class="vote-buttons">
   <button onclick="submitVote('Yes, I\'m intrigued!')">Yes, I'm intrigued!</button>
   <button onclick="submitVote('No, not my taste.')">No, not my taste.</button>
-</div>
-  
-  
-  <!-- Hidden form that submits the vote -->
-  
-  <script>
+ </div>
+
+<!-- Hidden form that submits the vote -->
+<script>
   function submitVote(choice) {
     const formURL = "https://docs.google.com/forms/d/e/1FAIpQLSfpzzoehDO9T0dpJRA1ZTZmBp_JETzogQupUynIaQerxi3P4w/formResponse";
     const formData = new FormData();
-    
-    // Use the actual Google Forms input field name
     formData.append("entry.2130828814", choice);
-
     fetch(formURL, {
       method: "POST",
       mode: "no-cors",
@@ -87,7 +82,7 @@
       console.error("Submission error:", err);
     });
   }
-</script>
+</script> 
   
   <div class="social-links">
     <p>Share it:</p>
